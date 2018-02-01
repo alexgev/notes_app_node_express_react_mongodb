@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import {serverPort} from '../etc/config.json';
 
+import cors from 'cors';
+
 import * as db from './utils/DataBaseUtils';
 
 db.setUpConnection();
@@ -9,6 +11,7 @@ db.setUpConnection();
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/notes', (req, res) => {
     db.listNotes().then(data => res.send(data));

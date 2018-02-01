@@ -18,7 +18,7 @@ export function createNote(data) {
         title: data.title,
         text: data.text,
         color: data.color,
-        createdAt: new Data()
+        createdAt: new Date()
     });
 
     return note.save();
